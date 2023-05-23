@@ -5,7 +5,7 @@ class Item extends Component {
     const { item } = this.props;
     return (
       <div className="weatherItem">
-        <p>Date: {new Date(item.dt * 1000).toLocaleDateString()}</p>
+        <p>Date: {new Date(item.dt * 1000).toLocaleString()}</p>
         <p>Temp: {Math.round(item.main.temp - 273)}℃</p>
         <p>Desc: {item.weather[0].description}</p>
         <img
