@@ -1,21 +1,18 @@
-import React, { Component } from "react";
 import Item from "./Item";
-import Controls from "./Controls";
 
-class Weather extends Component {
-  render() {
-    const { onSearchInput, list, onTempInput } = this.props;
+const Weather = (props) => {
+  const { list, toggleLiked, deleteItem } = props;
 
+  return list.map((item) => {
     return (
-      <>
-        <Controls onSearchInput={onSearchInput} onTempInput={onTempInput} />
-
-        {list.map((item) => {
-          return <Item key={item.dt} item={item} />;
-        })}
-      </>
+      <Item
+        key={item.dt}
+        item={item}
+        toggleLiked={toggleLiked}
+        deleteItem={deleteItem}
+      />
     );
-  }
-}
+  });
+};
 
 export default Weather;
