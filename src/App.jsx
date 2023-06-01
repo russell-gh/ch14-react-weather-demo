@@ -96,4 +96,11 @@ const App = () => {
   );
 };
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    weather: state.weather,
+    location: state.location,
+  };
+}
+
+export default connect(mapStateToProps)(App);
