@@ -5,13 +5,11 @@ import "./App.css";
 import { connect } from "react-redux";
 import { NEW_API_DATA, SET_SEARCH_INPUT, SET_TEMP_INPUT } from "./store/types";
 import Interface from "./components/Interface";
+import { getApiData } from "./controllers/data";
 
 class App extends Component {
   async componentDidMount() {
-    const { data } = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${this.props.location}&appid=37b29f091f8754cf8600dea56dee3863`
-    );
-    this.props.dispatch({ type: NEW_API_DATA, payload: data });
+    getApiData("London");
   }
 
   render() {
