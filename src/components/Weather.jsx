@@ -4,14 +4,7 @@ const Weather = (props) => {
   const { list, toggleLiked, deleteItem } = props;
 
   return list.map((item) => {
-    return (
-      <Item
-        key={item.dt}
-        item={item}
-        toggleLiked={toggleLiked}
-        deleteItem={deleteItem}
-      />
-    );
+    return <Item key={item.dt} item={item} toggleLiked={toggleLiked} />;
   });
 };
 

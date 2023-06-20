@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Item.css";
 
 const Item = (props) => {
@@ -16,7 +15,7 @@ const Item = (props) => {
       <button onClick={() => toggleLiked(item.dt)}>
         {item.liked ? "Liked" : "DisLiked"}
       </button>
-      <button onClick={() => deleteItem(item.dt)}>Remove</button>
+      <button onClick={() => deleteItem()}>Remove</button>
     </div>
   );
 };

@@ -18,11 +18,9 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, []); //[] means run once
+  useEffect(() => {}, []); //[] means run once
 
-  const toggleLiked = (dt) => {
+  const toggleLiked = () => {
     const list = [...weather.list];
     const indexOf = list.findIndex((item) => {
       return item.dt === dt;
@@ -38,11 +36,10 @@ const App = () => {
       return item.dt === dt;
     });
     list.splice(indexOf, 1);
-    setWeather({ ...weather, list });
   };
 
   const onInput = (e) => {
-    setSearch(e.target.value);
+    setSearch(e);
   };
 
   const onTempInput = (e) => {
@@ -75,7 +72,7 @@ const App = () => {
       if (itemOne.main.temp > itemTwo.main.temp) return 1;
       if (itemOne.main.temp < itemTwo.main.temp) return -1;
     });
-  } else if (sort === "desc") {
+  } else if (sort === "des") {
     list.sort((itemOne, itemTwo) => {
       if (itemOne.main.temp > itemTwo.main.temp) return -1;
       if (itemOne.main.temp < itemTwo.main.temp) return 1;
@@ -91,7 +88,7 @@ const App = () => {
         <option value="asc">Temp - Asc</option>
         <option value="desc">Temp - Desc</option>
       </select>
-      <Weather list={list} toggleLiked={toggleLiked} deleteItem={deleteItem} />
+      <Weather list={list} toggleLiked={toggleLiked} />
     </>
   );
 };
